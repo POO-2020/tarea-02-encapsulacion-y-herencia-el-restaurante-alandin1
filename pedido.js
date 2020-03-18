@@ -9,33 +9,33 @@ export default class Pedido{
      * @param {Cliente} cliente
      */
     constructor(fecha, hora, cliente){
-        this.fecha = fecha
-        this.hora = hora
-        this.cliente = cliente
-        this.elementosPedidos = new Array()
+        this._fecha = fecha
+        this._hora = hora
+        this._cliente = cliente
+        this._elementosPedidos = new Array()
     }
     agregarElemento(elementoPedido){
-        this.elementosPedidos.push(elementoPedido)
+        this._elementosPedidos.push(elementoPedido)
     }
     listarElementos(){
-        this.elementosPedidos.forEach((elementoPedido, i) => {
+        this._elementosPedidos.forEach((elementoPedido, i) => {
             console.log(`${i} - ${elementoPedido.getDescripcion()}`)
         })
     }
     getResumen(){
-        return `${this.fecha.getFecha()} ${this.hora.getFormato12()} - ${this.getNumeroElementos()} Elementos con ${this.getProductos()} Productos, Total: ${this.getCostoTotal()}`
+        return `${this._fecha.getFecha()} ${this._hora.getFormato12()} - ${this.getNumeroElementos()} Elementos con ${this.getProductos()} Productos, Total: ${this.getCostoTotal()}`
     }
     getNumeroElementos(){
-        return `${this.elementosPedidos.length}`
+        return `${this._elementosPedidos.length}`
     }
     getProductos(){
         let i = 0
-        this.elementosPedidos.forEach(elementoPedido => {i = elementoPedido.cantidad + i})
+        this._elementosPedidos.forEach(elementoPedido => {i = elementoPedido.cantidad + i})
         return i
     }
     getCostoTotal(){
         let i = 0
-        this.elementosPedidos.forEach(elementoPedido => {i = (elementoPedido.cantidad * elementoPedido.producto.precio.valor) + i})
+        this._elementosPedidos.forEach(elementoPedido => {i = (elementoPedido.cantidad * elementoPedido.producto.precio.valor) + i})
         return `$${new Intl.NumberFormat("en-US").format(i)}`
     }
 }

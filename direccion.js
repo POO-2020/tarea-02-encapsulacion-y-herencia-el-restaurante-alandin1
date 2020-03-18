@@ -10,25 +10,25 @@ export default class Direccion {
      * @param {string} municipio 
      */
     constructor(calle, numeroExterior, numeroInterior, colonia, codigoPostal, ciudad, municipio){
-        this.calle = calle
-        this.numeroExterior = numeroExterior
-        this.numeroInterior = numeroInterior
-        this.colonia = colonia
-        this.codigoPostal = codigoPostal
-        this.ciudad = ciudad
-        this.municipio = municipio
+        this._calle = calle
+        this._numeroExterior = numeroExterior
+        this._numeroInterior = numeroInterior
+        this._colonia = colonia
+        this._codigoPostal = codigoPostal
+        this._ciudad = ciudad
+        this._municipio = municipio
     }
 
     getFormatoCorto(){
-        return `${this.calle} ${this.numeroExterior}`
+        return `${this._calle} ${this._numeroExterior}`
     }
 
     getFormatoExtend(){
-        if (this.numeroInterior === 0){
-            return `${this.codigoPostal}, ${this.calle} ${this.numeroExterior} (Sin Numero Interior), ${this.colonia}, ${this.ciudad}, ${this.municipio}`
+        if (this._numeroInterior === 0){
+            return `${this._codigoPostal}, ${this._calle} ${this._numeroExterior} (Sin Numero Interior), ${this._colonia}, ${this._ciudad}, ${this._municipio}`
         }
         else{
-            return `${this.codigoPostal}, ${this.calle} ${this.numeroExterior} (No. Interior: ${this.numeroInterior}), ${this.colonia}, ${this.ciudad}, ${this.municipio}`
+            return `${this._codigoPostal}, ${this._calle} ${this._numeroExterior} (No. Interior: ${this._numeroInterior}), ${this._colonia}, ${this._ciudad}, ${this._municipio}`
         }
     }
 }
