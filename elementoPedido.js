@@ -4,8 +4,18 @@ export default class elementoPedido {
         this._producto = producto
         this._cantidad =cantidad
     }
+
+    getPrecio(){
+        return (this._producto.getPrecio())
+    }
+
+    getCantidad(){
+        return this._cantidad
+    }
+
     getDescripcion(){
-        let precioF = this._cantidad * this._producto.precio.valor
-        return `${this._cantidad} x ${this._producto.nombre} $${new Intl.NumberFormat("en-US").format(precioF)}`
+        let total = (this._cantidad * this._producto.getPrecio())
+        total = new Precio (total)
+        return `${this._cantidad} x ${this._producto.getNombre()} $${total.getPrecio()}`
     }
 }

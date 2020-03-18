@@ -19,7 +19,7 @@ export default class Pedido{
     }
     listarElementos(){
         this._elementosPedidos.forEach((elementoPedido, i) => {
-            console.log(`${i} - ${elementoPedido.getDescripcion()}`)
+            console.log(`${i + 1} - ${elementoPedido.getDescripcion()}`)
         })
     }
     getResumen(){
@@ -35,7 +35,8 @@ export default class Pedido{
     }
     getCostoTotal(){
         let i = 0
-        this._elementosPedidos.forEach(elementoPedido => {i = (elementoPedido.cantidad * elementoPedido.producto.precio.valor) + i})
+        this._elementosPedidos.forEach(elementoPedido => {
+            i = (elementoPedido.getCantidad * elementoPedido.getPrecio) + i})
         return `$${new Intl.NumberFormat("en-US").format(i)}`
     }
 }

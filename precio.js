@@ -6,4 +6,8 @@ export default class Precio{
     getPrecio(){
         return (`El precio de su producto es $${new Intl.NumberFormat("en-UA").format(this._valor)}`)
     }
+
+    getValor(){
+        return this._valor
+    }
 }
