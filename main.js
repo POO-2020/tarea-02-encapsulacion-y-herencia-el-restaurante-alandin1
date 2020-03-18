@@ -7,9 +7,12 @@ import ElementoPedido from "./elementoPedido.js"
 import Pedido from "./pedido.js"
 import Cliente from "./cliente.js"
 import Restaurante from "./restaurante.js"
+import ClienteFrecuente from "./clienteFrecuente.js"
 
 
 var datosPedido1 = new Pedido(new Fecha(27,2,2020), new Tiempo(6,34,"pm"), new Cliente("Ana Georgina Landín", new Direccion("Manuel Acuña", 385, 0, "Lomas", 28000, "Colima", "Colima"), 3123045861))
+var datosClienteF1 = {nombre: "Ana Georgina Landín", direccion: new Direccion("manuel acuña", 385, 0, "Lomas de circunvalación", 28010, "colima", "colima"), telefono: 3126023, numero: 3, fecha: new Fecha(11,2,2020)}
+var datosCliente = {nombre: "Ana Landín", direccion: new Direccion("Ignacio Salndoval", 130, 0, "Centro", 28000, "Colima", "Colima"), telefono: 31358605}
 
 class Main {
     constructor(){
@@ -66,8 +69,13 @@ class Main {
     }
 
     pruebaCliente(){
-        let cliente = new Cliente("Ana Landín", new Direccion("Ignacio Salndoval", 130, 0, "Centro", 28000, "Colima", "Colima"), 31358605)
+        let cliente = new Cliente(datosCliente)
         console.log(cliente.getPerfil())
+    }
+
+    pruebaClienteFrecuente(){
+        let clienteF1 = new ClienteFrecuente(datosClienteF1)
+        console.log(clienteF1.getPerfil())
     }
 
     pruebaRestaurante(){
@@ -97,3 +105,4 @@ app.pruebaElementoPedido()
 app.pruebaPedido()
 app.pruebaCliente()
 app.pruebaRestaurante()
+app.pruebaClienteFrecuente()

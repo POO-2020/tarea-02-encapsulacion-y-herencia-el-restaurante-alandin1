@@ -7,7 +7,7 @@ export default class Cliente{
      * @param {Direccion} direccion
      * @param {number} telefono 
      */
-    constructor(nombre, direccion, telefono){
+    constructor({nombre, direccion, telefono}){
         this._nombre = nombre
         this._direccion = direccion
         this._telefono = telefono
