@@ -43,11 +43,20 @@ export default class Restaurante{
         return true
     }
 
-    eliminarPedido(pedido, nuevoPed) {
+    eliminarPedido(pedido) {
         let resultado = this._buscarPedido(pedido)
         if(resultado < 0){
             return false
         } 
+        this._pedidos.splice(resultado, 1)
+        return true
+    }
+
+    actualizarPedidos(pedido, nuevoPed){
+        let resultado = this._buscarPedido(pedido)
+        if(resultado < 0){
+            return false
+        }
         this._pedidos.splice(resultado, 1, nuevoPed)
         return true
     }
