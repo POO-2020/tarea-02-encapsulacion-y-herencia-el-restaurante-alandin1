@@ -17,7 +17,7 @@ var datosCliente = {nombre: "Ana Landín", direccion: new Direccion("Ignacio Sal
 class Main {
     constructor(){
         this.pedido = new Pedido(datosPedido1)
-        this.restaurante = new Restaurante("Kukara Sushi", 3126023, new Direccion("Ignacio Sandoval", 1130, 0, "Lomas", 28000, "Colima", "Colima"))
+        this.restaurante = new Restaurante("Kukara Sushi Deli", 3126023, new Direccion("Ignacio Sandoval", 1130, 0, "Lomas", 28000, "Colima", "Colima"))
     }
 
     pruebaTiempo(){

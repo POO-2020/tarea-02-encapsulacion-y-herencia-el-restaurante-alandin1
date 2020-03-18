@@ -1,7 +1,5 @@
 
 import Direccion from "./direccion.js"
-import ElementoPedido from "./elementoPedido.js"
-import Pedido from "./pedido.js"
 
 
 export default class Restaurante{
