@@ -44,13 +44,13 @@ export default class Pedido{
     }
     getProductos(){
         let i = 0
-        this._elementosPedidos.forEach(elementoPedido => {i = elementoPedido.cantidad + i})
+        this._elementosPedidos.forEach(elementoPedido => {i = elementoPedido.getCantidad() + i})
         return i
     }
     getCostoTotal(){
         let i = 0
         this._elementosPedidos.forEach(elementoPedido => {
-            i = (elementoPedido.getCantidad * elementoPedido.getPrecio) + i})
+            i = (elementoPedido.getCantidad() * elementoPedido.getPrecio()) + i})
         return `$${new Intl.NumberFormat("en-US").format(i)}`
     }
 }
