@@ -14,8 +14,8 @@ export default class elementoPedido {
     }
 
     getDescripcion(){
-        let total = (this._cantidad * this._producto.getPrecio())
-        total = new Precio (total)
-        return `${this._cantidad} x ${this._producto.getNombre()} $${total.getPrecio()}`
+        let pFinal = (this._cantidad * this._producto.getPrecio())
+        pFinal = new Precio (pFinal)
+        return `${this._cantidad} x ${this._producto.getNombre()} $${pFinal.getPrecio()}`
     }
 }

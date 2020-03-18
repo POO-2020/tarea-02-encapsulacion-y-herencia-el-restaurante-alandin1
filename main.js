@@ -8,9 +8,12 @@ import Pedido from "./pedido.js"
 import Cliente from "./cliente.js"
 import Restaurante from "./restaurante.js"
 
+
+var datosPedido1 = new Pedido(new Fecha(27,2,2020), new Tiempo(6,34,"pm"), new Cliente("Ana Georgina Landín", new Direccion("Manuel Acuña", 385, 0, "Lomas", 28000, "Colima", "Colima"), 3123045861))
+
 class Main {
     constructor(){
-        this.pedido = new Pedido(new Fecha(27,2,2020), new Tiempo(6,34,"pm"), new Cliente("Ana Georgina Landín", new Direccion("Manuel Acuña", 385, 0, "Lomas", 28000, "Colima", "Colima"), 3123045861))
+        this.pedido = new Pedido(datosPedido1)
         this.restaurante = new Restaurante("Kukara Sushi", 3126023, new Direccion("Ignacio Sandoval", 1130, 0, "Lomas", 28000, "Colima", "Colima"))
     }
 
@@ -59,7 +62,7 @@ class Main {
         this.pedido.agregarElemento(elemento1)
         let elemento2 = new ElementoPedido(new Producto("Hamburguesa con queso y papas", new Precio (95.8)), 2)
         this.pedido.agregarElemento(elemento2)
-        console.log(this.pedido.listarElementos())
+        this.pedido.listarElementos()
     }
 
     pruebaCliente(){

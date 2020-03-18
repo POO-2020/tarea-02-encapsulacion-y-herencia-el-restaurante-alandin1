@@ -8,23 +8,37 @@ export default class Pedido{
      * @param {Tiempo} hora 
      * @param {Cliente} cliente
      */
-    constructor(fecha, hora, cliente){
+    constructor(fecha, hora, cliente, numeroPedido){
         this._fecha = fecha
         this._hora = hora
         this._cliente = cliente
+        this._numeroPedido = numeroPedido
         this._elementosPedidos = new Array()
     }
-    agregarElemento(elementoPedido){
-        this._elementosPedidos.push(elementoPedido)
+
+    getNumeroPedido(){
+        return this._numeroPedido
     }
+
+    _esIgualA(pedido){
+        if(pedido.getNumeroPedido() == this._numeroPedido){ return true}
+        else {return false}
+    }
+
+    agregarElemento(elePedido){
+        this._elementosPedidos.push(elePedido)
+    }
+    
     listarElementos(){
-        this._elementosPedidos.forEach((elementoPedido, i) => {
-            console.log(`${i + 1} - ${elementoPedido.getDescripcion()}`)
+        this._elementosPedidos.forEach((elePedido, i) => {
+            console.log(`${i + 1} - ${elePedido.getDescripcion()}`)
         })
     }
+
     getResumen(){
         return `${this._fecha.getFecha()} ${this._hora.getFormato12()} - ${this.getNumeroElementos()} Elementos con ${this.getProductos()} Productos, Total: ${this.getCostoTotal()}`
     }
+    
     getNumeroElementos(){
         return `${this._elementosPedidos.length}`
     }
